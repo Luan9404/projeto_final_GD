@@ -1,0 +1,132 @@
+{
+    "name": "JogadorInputActions",
+    "maps": [
+        {
+            "name": "Jogador",
+            "id": "838eade9-3716-4102-99b8-a0eba35fb6f0",
+            "actions": [
+                {
+                    "name": "Movimentar",
+                    "type": "Value",
+                    "id": "0d724e45-25e6-4c1d-a984-d033485483df",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pular",
+                    "type": "Button",
+                    "id": "e31e4c03-b4ed-433f-bb83-9f70009d7bcc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Teclado WASD",
+                    "id": "dfe1ed13-7cf5-4784-ac1f-41a918f1ac20",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimentar",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0fae807a-06f3-43d3-8b9b-e9e2c2819fb0",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Movimentar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d47b13fb-c213-483e-93ea-2a8a90c27546",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Movimentar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "345cd64d-3105-480a-9ed3-935c4fea7d0c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Movimentar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7f3b1135-3b97-4316-8f07-eb323854a045",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Movimentar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Teclado Ctrl BarraEspaco",
+                    "id": "95dcaae5-5b48-44ec-a23d-8a6e36853272",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pular",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "42e8b057-46a4-49c0-b64c-86cbdc84a75e",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Pular",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "6020aaec-25b0-44e9-a8e6-abff8b089fbb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TecladoScheme",
+                    "action": "Pular",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "TecladoScheme",
+            "bindingGroup": "TecladoScheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
