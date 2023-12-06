@@ -43,8 +43,13 @@ public class MovimentarEmUmEixoRigidbody2D : MonoBehaviour
         }
         else
         {
-            rb.MovePosition(transform.position + velocidadeComponent.GetVelocidade()
+            float distancia = Vector2.Distance(transform.position, Camera.main.transform.position);
+            if(distancia < 15f)
+            {
+                rb.MovePosition(transform.position + velocidadeComponent.GetVelocidade()
                     * Time.deltaTime * direcaoMovimento);
+            }
+           
         }
     }
 }

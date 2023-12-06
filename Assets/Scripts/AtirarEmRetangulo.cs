@@ -19,10 +19,10 @@ public class AtirarEmRetangulo : MonoBehaviour
     private Vector3 deslocamentoInicial;
     private Vector3 deslocamento;
     private Vector3 posInicial;
+    private IEnumerator coroutine;
 
     void Start()
     {
-        posInicial = transform.position;
         deslocamento = Vector3.zero;
 
         if (eixoX)
@@ -34,7 +34,8 @@ public class AtirarEmRetangulo : MonoBehaviour
         if (eixoZ)
             deslocamento.z = 1.0f;
 
-        StartCoroutine(AtiraContinuamente());
+        coroutine = AtiraContinuamente();
+        StartCoroutine(coroutine);
     }
 
     IEnumerator AtiraContinuamente()
@@ -52,6 +53,7 @@ public class AtirarEmRetangulo : MonoBehaviour
 
     public void Atira()
     {
+        posInicial = transform.position;
         metadeDaDistancia = distanciaLinhaDeTiros / 2;
 
         if (quantidadeLinhas % 2 == 0)
@@ -73,7 +75,7 @@ public class AtirarEmRetangulo : MonoBehaviour
         for (int i = 0; i < quantidadeLinhas; i++)
         {
             Instantiate(projetil,
-                transform.position + (deslocamento * i * distanciaLinhaDeTiros), 
+                transform.position + (deslocamento * i * distanciaLinhaDeTiros),
                 transform.rotation);
         }
 
@@ -109,5 +111,10 @@ public class AtirarEmRetangulo : MonoBehaviour
 
         if (distanciaLinhaDeTiros <= 0)
             distanciaLinhaDeTiros = 1;
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(coroutine);
     }
 }

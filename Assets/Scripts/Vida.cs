@@ -39,13 +39,22 @@ public class Vida : MonoBehaviour
         else
             vida = 0;
 
-        
+        if (gameObject.tag == "Player")
+        {
+            GameManager gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+
+            gm.VariacaoVida(vida);
+        }
+
         if (vida <= 0)
         {
             eventosAntesDestruicao.Invoke();
 
             if (semVidaSeDestroi)
                 Destroy(gameObject, tempoAntesDestruicao);
+
+            if (gameObject.tag == "Player")
+                Respawn();
         }
     }
 
@@ -55,6 +64,13 @@ public class Vida : MonoBehaviour
 
         if (vida > vidaMaxima)
             vida = vidaMaxima;
+
+        if(gameObject.tag == "Player")
+        {
+            GameManager gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+
+            gm.VariacaoVida(vida);
+        }
 
         if (variacao < 0)
             eventosReducaoVida.Invoke();
@@ -68,5 +84,18 @@ public class Vida : MonoBehaviour
     public void SetVidaMaxima(int valor)
     {
         vidaMaxima = valor;
+    }
+
+    private void Respawn()
+    {
+        vida = 3;
+        Vector2 pontoRespawn = GameObject.FindWithTag("Respawn").transform.position;
+
+        GameManager gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+
+        gm.VariacaoVida(vida);
+
+        gameObject.transform.position = pontoRespawn;
+
     }
 }

@@ -8,18 +8,14 @@ public class Coletavel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager gm = other.GetComponent<GameManager>();
-            // Adicione lógica de coleta aqui (por exemplo, incrementar o contador, reproduzir som, etc.)
+            GameManager gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
             Collect(gm);
         }
     }
 
     void Collect(GameManager gm)
     {
-        // Adicione lógica de coleta aqui
-        // Por exemplo, você pode incrementar um contador global de coletáveis
         gm.VariacaoPontuacao(1);
-        // Destruir o objeto coletável
         Destroy(gameObject);
     }
 

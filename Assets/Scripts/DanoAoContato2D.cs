@@ -23,10 +23,15 @@ public class DanoAoContato2D : MonoBehaviour
         print("foi collision");
         if (outro.gameObject.CompareTag(outroTag))
         {
-            outro.gameObject.GetComponent<Vida>().SetVida(
-                outro.gameObject.GetComponent<Vida>().GetVida()
-                - danoComponent.GetDano()
-            );
+            float distancia = Vector2.Distance(transform.position, Camera.main.transform.position);
+            if (distancia < 13f)
+            {
+                outro.gameObject.GetComponent<Vida>().SetVida(
+                    outro.gameObject.GetComponent<Vida>().GetVida()
+                    - danoComponent.GetDano()
+                );
+            }    
+
 
             if (seDestroiNoContato)
                 Destroy(gameObject);
@@ -37,10 +42,15 @@ public class DanoAoContato2D : MonoBehaviour
     {
         if (outro.gameObject.CompareTag(outroTag))
         {
-            outro.gameObject.GetComponent<Vida>().SetVida(
-                outro.gameObject.GetComponent<Vida>().GetVida()
-                - danoComponent.GetDano()
-            );
+            float distancia = Vector2.Distance(transform.position, Camera.main.transform.position);
+            if (distancia < 13f)
+            {
+                outro.gameObject.GetComponent<Vida>().SetVida(
+                    outro.gameObject.GetComponent<Vida>().GetVida()
+                    - danoComponent.GetDano()
+                );
+            }
+
 
             if (seDestroiNoContato)
                 Destroy(gameObject);
