@@ -49,14 +49,9 @@ public class MovimentarComInputEixoXRigidbody2D : MonoBehaviour
             print(Vector2.up);
             rb2D.velocity = Vector2.up * 20;
         }
-        if(Input.GetButtonDown("Fire3"))
-        {
-            rb2D.velocity = new Vector2(entrada.x * velocidadeComponent.GetVelocidade() + 4, rb2D.velocity.y);
-        }else
-        {
-            rb2D.velocity = new Vector2(entrada.x * velocidadeComponent.GetVelocidade(), rb2D.velocity.y);
+      
+        rb2D.velocity = new Vector2(entrada.x * velocidadeComponent.GetVelocidade(), rb2D.velocity.y);
 
-        }
     }
 
     IEnumerator ObtemEntradaEixos()
