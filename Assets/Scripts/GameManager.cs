@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pontuacao = 0;
-        vida = 3;
+        vida = 5;
 
     }
 
